@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 60% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 0% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/50;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-accent bg-clip-text text-transparent;
+  }
+
+  .card-base {
+    @apply bg-surface border border-surface-border rounded-xl transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:border-accent/30 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .glow-button {
+    @apply relative overflow-hidden bg-gradient-accent text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-glow hover:scale-105 active:scale-100;
+  }
+
+  .outline-button {
+    @apply border border-accent/50 text-accent px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:shadow-glow-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-surface-elevated border border-surface-border text-text-secondary;
+  }
+
+  .section-label {
+    @apply text-accent font-mono text-sm font-medium tracking-widest uppercase;
+  }
+
+  .code-block {
+    @apply bg-surface border border-surface-border rounded-lg p-4 font-mono text-sm text-text-primary;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #6366f1, #8b5cf6) 1;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+}
